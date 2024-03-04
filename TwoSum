@@ -1,0 +1,20 @@
+public class Solution
+{
+public int[] solAll = new int[2];
+ public int[] TwoSum(int[] nums, int target)
+    {
+        for (int i = 0; i < nums.Length; i++)
+        {
+            for (int j = 0; j < nums.Length; j++)
+            {
+                if ((nums[j] + nums[i]) == target && i != j)
+                {
+                            solAll[0] = i;
+                            solAll[1] = j;
+                            return solAll;
+                }
+            }
+        }
+        return solAll;
+    }
+}
