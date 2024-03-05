@@ -1,0 +1,77 @@
+public class Solution
+{   
+    public int RomanToInt(string s)
+    {
+        int sum = 0;
+        char[] arr = s.ToCharArray();
+        for (int i = arr.Length-1 ; i >= 0 ; i--)
+        {
+            switch (arr[i])
+            {
+                case 'I' :
+                    sum += 1;
+                    
+                    break;
+                case 'V':
+                    sum += 5;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                    }
+                    break;
+                case 'X':
+                    sum += 10;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                        if (arr[i - 1] == 'V') { sum = sum - 10; }
+                    }
+                    break;
+                case 'L':
+                    sum += 50;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                        if (arr[i - 1] == 'V') { sum = sum - 10; }
+                        if (arr[i - 1] == 'X') { sum = sum - 20; }
+                    }
+                    break;
+                case 'C':
+                    sum += 100;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                        if (arr[i - 1] == 'V') { sum = sum - 10; }
+                        if (arr[i - 1] == 'X') { sum = sum - 20; }
+                        if (arr[i - 1] == 'L') { sum = sum - 100; }
+                    }
+                    break;
+                case 'D':
+                    sum += 500;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                        if (arr[i - 1] == 'V') { sum = sum - 10; }
+                        if (arr[i - 1] == 'X') { sum = sum - 20; }
+                        if (arr[i - 1] == 'L') { sum = sum - 100; }
+                        if (arr[i - 1] == 'C') { sum = sum - 200; }
+                    }
+                    break;
+                case 'M':
+                    sum += 1000;
+                    if (i != 0)
+                    {
+                        if (arr[i - 1] == 'I') { sum = sum - 2; }
+                        if (arr[i - 1] == 'V') { sum = sum - 10; }
+                        if (arr[i - 1] == 'X') { sum = sum - 20; }
+                        if (arr[i - 1] == 'L') { sum = sum - 100; }
+                        if (arr[i - 1] == 'C') { sum = sum - 200; }
+                        if (arr[i - 1] == 'D') { sum = sum - 1000; }
+                    }
+                    break;
+            }
+
+        }
+        return sum;
+    }
+}
