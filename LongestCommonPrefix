@@ -1,0 +1,18 @@
+func longestCommonPrefix(strs []string) string {
+    sort.Strings(strs)
+
+	last := strings.Split(strs[len(strs)-1], "")
+	first := strings.Split(strs[0], "")
+
+	res := ""
+
+	for i := 0; i < len(last) && i < len(first); i++ {
+		if first[i] == last[i] {
+			res = res + first[i]
+		} else {
+			break
+		}
+
+	}
+	return res
+}
